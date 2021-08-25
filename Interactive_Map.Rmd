@@ -1,0 +1,30 @@
+---
+title: "Interactive Map"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## August 25, 2021
+
+```{r map, echo=FALSE}
+library(leaflet)
+slIcon <- makeIcon(
+        iconUrl = "https://images.vexels.com/media/users/3/144034/isolated/lists/0d2792be807c028362452c4722921249-stroke-statue-of-liberty.png",
+        iconWidth = 35*885/766,
+        iconHeight = 35,
+        iconAnchorX = 35*885/766/2,
+        iconAnchorY = 16
+)
+
+my_map <- leaflet() %>%
+        addTiles() %>%
+        addMarkers(lat=40.6893488,
+                   lng=-74.0445463,
+                   popup="<b>Statue of Liberty</b>
+                   <br>New York, NY 10004 U.S.",
+                   icon = slIcon)
+my_map
+```
